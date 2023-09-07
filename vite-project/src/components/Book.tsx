@@ -12,12 +12,16 @@ function Book({ books }: BookProps) {
     return (
         <>
             {books.map((e, index) => (
-                <div key={index} className="col-md-4">
-                    <h2>{e.title}</h2>
-                    <img src={`${e.image}`} alt={`${e.title}`} />
-                    <p>{e.author}</p>
-                    <p>{e.year}</p>
-                    <p>{e.genre}</p>
+                <div key={index} className="col-md-4 p-1">
+                    <div className="card border-4" style={{height: ""}}>
+                        <img className="card-img-top" src={`${e.image}`} alt={`${e.title}`} />
+                        <div className="card-body"> 
+                            <h4 className="card-title">{e.title}</h4>
+                            <p className="card-text">{e.author}</p>
+                            <p className="card-text">{e.year}</p>
+                            <p className="card-text">{e.genre}</p>
+                        </div>
+                    </div>
                 </div>
             ))}
         </>
