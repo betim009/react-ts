@@ -1,88 +1,31 @@
-// Modelo 1
-// function Book(props) {
-//     return (
-//         <div>
-//             <p>{props.title}</p>
-//             <p>{props.author}</p>
-//         </div>
-//     )
-// }
-
-
-
-// Modelo 2
-// function Book({ title, author }) {
-//     return (
-//         <div>
-//             <p>{title}</p>
-//             <p>{author}</p>
-//         </div>
-//     )
-// }
-
-
-
-// Modelo 3
-// type BookProps = {
-//     title: string,
-//     author: string,
-// }
-
-// function Book({ title, author }: BookProps) {
-//     return (
-//         <div>
-//             <p>{title}</p>
-//             <p>{author}</p>
-//         </div>
-//     )
-// }
-
-
-
-
-// Modelo 4
-// type BookProps = {
-//     title: string,
-//     author: string,
-//     image: string,
-// }
-
-// function Book({ title, author, image }: BookProps) {
-//     return (
-//         <div>
-//             <p>{title}</p>
-//             <p>{author}</p>
-//             <img src={`${image}`} alt={`${title}`} />
-//         </div>
-//     )
-// }
-
-// export default Book
-
-
-// Modelo 5
 type BookProps = {
-    book: {
-        title: string,
-        author: string,
-        year: number,
-        genre: string,
-        image: string,
-    }
+    books: {
+        title: string;
+        author: string;
+        year: number;
+        genre: string;
+        image: string;
+    }[]
 }
 
-function Book({ book }: BookProps) {
+function Book({ books }: BookProps) {
     return (
-        <div className="Cards">
-            <div className="Card">
-                <h2>{book.title}</h2>
-                <img src={`${book.image}`} alt={`${book.title}`} />
-                <p>{book.author}</p>
-                <p>{book.year}</p>
-                <p>{book.genre}</p>
-            </div>
-        </div>
+        <>
+            {books.map((e, index) => (
+                <div key={index} className="col-md-4 p-1">
+                    <div className="card border-4" style={{height: ""}}>
+                        <img className="card-img-top" src={`${e.image}`} alt={`${e.title}`} />
+                        <div className="card-body"> 
+                            <h4 className="card-title">{e.title}</h4>
+                            <p className="card-text">{e.author}</p>
+                            <p className="card-text">{e.year}</p>
+                            <p className="card-text">{e.genre}</p>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </>
     )
 }
 
-export default Book
+export default Book;
