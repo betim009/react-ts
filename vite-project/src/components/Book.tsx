@@ -68,6 +68,7 @@ type BookProps = {
         year: number,
         genre: string,
         image: string,
+        isFavorite: boolean,
     }
 }
 
@@ -79,7 +80,8 @@ function Book({ book }: BookProps) {
                 <img src={`${book.image}`} alt={`${book.title}`} />
                 <p>{book.author}</p>
                 <p>{book.year}</p>
-                <p>{book.genre}</p>
+                <p>{book.genre} </p>
+                {book.isFavorite && <span>✅</span>}
             </div>
         </div>
     )
