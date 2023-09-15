@@ -14,7 +14,7 @@ function Book({ books }: BookProps) {
             {books.length > 0 ? (
                 books.map((e, index) => (
                     <div key={index} className="col-md-4 p-1">
-                        <div className="card border-4" style={{ height: "" }}>
+                        <div className="card border-4">
                             <img className="card-img-top" src={`${e.image}`} alt={`${e.title}`} />
                             <div className="card-body">
                                 <h4 className="card-title">{e.title}</h4>
