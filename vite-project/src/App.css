@@ -1,17 +1,5 @@
-img {
-  width: 100px;
-  height: 100px;
-  background-color: #ccc;
-}
-
-.Cards {
-  display: flex;
-  justify-content: center;
-}
-
-.Card {
-  width: 200px;
-  border: 1px solid black;
-  margin-right: 2px;
-  text-align: center;
+body {
+  margin: 0 auto;
+  background-color: #333;
+  color: white;
 }
