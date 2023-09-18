@@ -8,8 +8,6 @@
 //     )
 // }
 
-
-
 // Modelo 2
 // function Book({ title, author }) {
 //     return (
@@ -19,8 +17,6 @@
 //         </div>
 //     )
 // }
-
-
 
 // Modelo 3
 // type BookProps = {
@@ -36,8 +32,6 @@
 //         </div>
 //     )
 // }
-
-
 
 
 // Modelo 4
