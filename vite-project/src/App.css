@@ -3,3 +3,27 @@ body {
   background-color: #333;
   color: white;
 }
+
+button {
+  background-color: #007bff;
+  /* Cor de fundo azul */
+  color: #ffffff;
+  /* Cor do texto branco */
+  border: none;
+  /* Remove a borda */
+  padding: 10px 20px;
+  /* Espaçamento interno */
+  font-size: 16px;
+  /* Tamanho da fonte */
+  border-radius: 5px;
+  /* Cantos arredondados */
+  cursor: pointer;
+  /* Mostra a mãozinha ao passar o mouse */
+  text-decoration: none;
+  /* Remove sublinhado do texto (caso seja um link) */
+}
+
+button {
+  background-color: #0056b3;
+  /* Cor de fundo azul mais escura no hover */
+}
