@@ -1,36 +1,44 @@
 import './App.css'
 
-import { useState } from 'react'
+import { useState } from 'react';
 
 function App() {
-  const [showImg, setShowImg] = useState(true);
-  const [counter, setCounter] = useState(0);
+  const toolKit = [
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'HTML',
+    'CSS',
+    'Node',
+    'Testes automatizados',
+  ];
 
-  const handleClick = () => setShowImg(!showImg);
+  const [index, setIndex] = useState(0);
 
-  const handleClickTwo = () => setCounter(counter + 1);
+  const handleNextClick = () => {
+    if (index + 1 < toolKit.length) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0); // Volta para o primeiro elemento
+    }
+  }
+
+  const handlePreviousClick = () => {
+    if (index - 1 >= 0) {
+      setIndex(index - 1);
+    } else {
+      setIndex(toolKit.length - 1); // Vai para o último elemento
+    }
+  }
 
   return (
     <>
-      <h1>React TypeScript!</h1>
-
-      <div>
-        {showImg && <img src="src/assets/react.png" alt="imagem01" style={{ width: '250px' }} />}
-
-        <button onClick={handleClick}>
-          {showImg ? 'Esconder Imagem' : 'Mostrar imagem'}
-        </button>
-      </div>
-
-      <div>
-        <button onClick={handleClickTwo}>
-          {counter}
-        </button>
-      </div>
-
-
+      <h1>Caixa de ferramentas de uma Pessoa Desenvolvedora</h1>
+      <h2>{toolKit[index]}</h2>
+      <button onClick={handlePreviousClick}>Anterior</button>
+      <button onClick={handleNextClick}>Próximo</button>
     </>
-  )
+  );
 }
 
 export default App
