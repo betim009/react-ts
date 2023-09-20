@@ -14,6 +14,8 @@ function App() {
   ];
 
   const [index, setIndex] = useState(0);
+  const [toolList, setToolList] = useState(toolKit);
+  const [inputValue, setInputValue] = useState('');
 
   const handleNextClick = () => {
     if (index + 1 < toolKit.length) {
@@ -31,12 +33,33 @@ function App() {
     }
   }
 
+  const handleAddClick = () => {
+    if (inputValue) {
+      setToolList([...toolList, inputValue]);
+    }
+  }
+
   return (
     <>
       <h1>Caixa de ferramentas de uma Pessoa Desenvolvedora</h1>
-      <h2>{toolKit[index]}</h2>
+      <h2>{toolList[index]}</h2>
       <button onClick={handlePreviousClick}>Anterior</button>
       <button onClick={handleNextClick}>Próximo</button>
+      
+      <section>
+        <h3>Adicione novas ferramentas:</h3>
+        <input onChange={({ target }) => setInputValue(target.value)} />
+        <button onClick={handleAddClick}>Adicionar</button>
+      </section>
+
+      <section>
+        <h3>Lista de itens do carrossel:</h3>
+        <ul>
+          {toolList.map((tool) => (
+            <li>{tool}</li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }
