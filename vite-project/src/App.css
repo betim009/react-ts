@@ -27,3 +27,11 @@ button {
   background-color: #0056b3;
   /* Cor de fundo azul mais escura no hover */
 }
+
+div {
+  padding: 10px;
+}
+
+div button {
+  margin: 5px;
+}
