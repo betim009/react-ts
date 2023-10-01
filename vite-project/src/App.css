@@ -3,3 +3,128 @@ body {
   background-color: #333;
   color: white;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+:root {
+  /* Background and Foreground */
+  --bg: #282a36;
+  --fg: #f8f8f2;
+
+  /* Syntax Colors */
+  --blue: #6272a4;
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --orange: #ffb86c;
+  --pink: #ff79c6;
+  --purple: #bd93f9;
+  --red: #ff5555;
+  --yellow: #f1fa8c;
+  --gray: #44475a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1rem;
+  background-color: var(--bg);
+  font-family: 'Roboto', sans-serif;
+  color: var(--fg);
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 1rem 0;
+}
+
+ul {
+  list-style: square;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* input,
+textarea {
+  display: block;
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  background: #eee;
+  transition: 0.2s;
+  margin-bottom: 1rem;
+} */
+
+input[type='checkbox'] {
+  display: inline-block;
+  width: auto;
+  margin: 0 0.5rem 0 0;
+}
+
+/* input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  background: white;
+  box-shadow: 0 0 0 3px var(--blue);
+} */
+
+button {
+  display: block;
+  cursor: pointer;
+  border: none;
+  transition: 0.1s;
+  background: var(--green);
+  color: var(--gray);
+  font-weight: bold;
+  padding: 0.75em 1.5em;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+button:hover {
+  box-shadow: 0 12px 18px -3px rgba(255, 255, 255, 0.1),
+    0 6px 8px -2px rgba(255, 255, 255, 0.08);
+  transform: translateY(
+    -1px
+  ); /* Opcional: Move o botão um pouco para cima para reforçar o efeito de levantamento */
+  transition: all 0.3s ease; /* Suaviza a transição */
+}
+
+button:active {
+  box-shadow: inset 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+hr {
+  border: 2px solid #eee;
+  margin: 2rem auto;
+}
+
+video,
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}

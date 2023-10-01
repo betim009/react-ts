@@ -1,0 +1,34 @@
+#movie-container {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 24px;
+    text-align: center;
+    color: var(--fg);
+}
+
+#movie-container button {
+    width: 100%;
+    color: var(--bg);
+    font-size: 0.8rem;
+}
+
+#movie-container h3 {
+    color: var(--fg);
+}
+
+.favorite {
+    height: 2rem;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    color: red !important;
+    font-size: 1rem !important;
+}
+
+.favorite:hover {
+    background-color: none;
+    transform: none;
+    box-shadow: none;
+}
