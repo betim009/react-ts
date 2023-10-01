@@ -1,0 +1,29 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "title": "Aventuras de React",
+            "image": "https://m.media-amazon.com/images/I/61FPdlI0U2L._SL1000_.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Typescript Desvendado",
+            "image": "https://m.media-amazon.com/images/I/81tK8zB3ZvL._SL1500_.jpg"
+        },
+        {
+            "id": 3,
+            "title": "O Mundo do JSX",
+            "image": "https://m.media-amazon.com/images/I/61afKkM7vAL._SL1500_.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Redux: O Poder do Estado Global",
+            "image": "https://m.media-amazon.com/images/I/61JydUByk1L._SL1360_.jpg"
+        },
+        {
+            "id": 5,
+            "title": "React Hooks",
+            "image": "https://m.media-amazon.com/images/I/71il6iyovEL._SL1500_.jpg"
+        }
+    ]
+}
