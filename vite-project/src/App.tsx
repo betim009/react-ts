@@ -7,6 +7,8 @@ function App() {
   const [email, setEmail] = useState('');
   const [school, setSchool] = useState('Médio')
   const [resume, setResume] = useState('');
+  const [terms, setTerms] = useState(false);
+  const [error, setError] = useState(false);
 
   const resetForm = () => {
     setName('');
@@ -15,22 +17,36 @@ function App() {
     setResume('');
   }
 
-  const handleSubmite = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    alert(
-      `Nome: ${name}\nemail: ${email}\nEscolaridade: ${school}\nExperiências: ${resume}`
-    );
+  const validateEmail = (email:string) => {
+    // Expressão regular para validar o e-mail
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
 
-    resetForm();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if(!validateEmail(email)) {
+      alert('Email Inválido')
+    }
+
+    if (terms && validateEmail(email)) {
+      alert(
+        `Nome: ${name}\nemail: ${email}\nEscolaridade: ${school}\nExperiências: ${resume}`
+      );
+      resetForm();
+    } else {
+      setError(true);
+    }
   }
 
   return (
     <div>
       <div className='firstContainer'>
-        <form action="" onSubmit={(event) => handleSubmite(event)}>
+        <form action="" onSubmit={(event) => handleSubmit(event)}>
           <label>
             Nome:
             <input
+              required
               value={name}
               onChange={({ target }) => setName(target.value)}
             />
@@ -39,6 +55,7 @@ function App() {
           <label>
             E-mail
             <input
+              required
               value={email}
               onChange={({ target }) => setEmail(target.value)}
             />
@@ -65,8 +82,24 @@ function App() {
             />
           </label>
 
+          <label>
+            Aceito os termos e condições
+            <input
+              type="checkbox"
+              checked={terms}
+              onChange={() => setTerms((prevTerms) => !prevTerms)}
+            />
+          </label>
+
           <button>Enviar</button>
         </form>
+
+        {error && (
+          <h4>
+            Você precisa aceitar os termos e condições para poder enviar o
+            currículo
+          </h4>
+        )}
       </div>
     </div >
   )
