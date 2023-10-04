@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 
-
 function App() {
   const [formInfo, setFormInfo] = useState({
     name: '',
@@ -33,20 +32,22 @@ function App() {
       alert('Email Inválido')
     }
 
-    if (terms && validateEmail(formInfo.email)) {
-      alert(
-        `Nome: ${formInfo.name}\nemail: ${formInfo.email}\nEscolaridade: ${formInfo.school}\nExperiências: ${formInfo.resume}`
-      );
-      resetForm();
-      setTerms(false);
-      setError(false);
+    if (terms) {
+      if (validateEmail(formInfo.email)) {
+        alert(
+          `Nome: ${formInfo.name}\nemail: ${formInfo.email}\nEscolaridade: ${formInfo.school}\nExperiências: ${formInfo.resume}`
+        );
+        resetForm();
+        setTerms(false);
+        setError(false);
+      }
     } else {
       setError(true);
     }
   }
 
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = event.target;
     setFormInfo({
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <label>
           Nome:
           <input
