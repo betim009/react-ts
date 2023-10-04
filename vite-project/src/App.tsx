@@ -18,7 +18,7 @@ function App() {
   const [inputValue, setInputValue] = useState('');
 
   const handleNextClick = () => {
-    if (index + 1 < toolKit.length) {
+    if (index + 1 < toolList.length) {
       setIndex(index + 1);
     } else {
       setIndex(0); // Volta para o primeiro elemento
@@ -29,7 +29,7 @@ function App() {
     if (index - 1 >= 0) {
       setIndex(index - 1);
     } else {
-      setIndex(toolKit.length - 1); // Vai para o último elemento
+      setIndex(toolList.length - 1); // Vai para o último elemento
     }
   }
 
