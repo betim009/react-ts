@@ -1,15 +1,18 @@
-import './App.css'
-import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import CoffeeList from './pages/CoffeList';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import CoffeeList from './pages/coffe-list';
+import NavBar from './components/nav-bar';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/coffees" element={<CoffeeList />} />
-    </Routes>
-  )
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/coffees" element={<CoffeeList />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
