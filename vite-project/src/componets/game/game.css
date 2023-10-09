@@ -1,0 +1,29 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap: 10px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.game input {
+    height: 30px;
+    width: 200px;
+    text-align: center;
+}
+
+.game button {
+    width: 30%;
+    background-color: #ccc;
+    border: 1px solid #aaa;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.game button:hover {
+    background-color: #ddd;
+}
+
+.game span {
+    font-weight: 800;
+}

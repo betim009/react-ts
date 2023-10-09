@@ -1,10 +1,12 @@
 import './App.css'
+import Game from './componets/game';
 
 
 function App() {
   return (
     <div> 
-      <h1>Hello World!</h1>
+      <h1>Bem vindo ao game!</h1>
+      <Game />
     </div>
   )
 }
