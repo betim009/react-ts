@@ -10,7 +10,7 @@ function Game() {
         e.preventDefault();
         if (parseInt(guess) === number) {
             alert("Acertou!");
-            setNumber(0);
+            setNumber(Math.floor(Math.random() * 2));
             setGuess("");
             setAttempts(0);
         } else {
