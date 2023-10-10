@@ -4,7 +4,7 @@ import Greeting from './componets'
 
 function App() {
   return (
-    <div>
+    <div className='container'>
       <Greeting 
         name={'Alberto'}
       />

@@ -3,3 +3,23 @@ body {
   background-color: #333;
   color: white;
 }
+
+.container {
+  background-color: white;
+  color: #333;
+  padding: 5%;
+  border: 2px solid;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  
+}
+
+.card {
+  padding: 2%;
+  height: 50%;
+  width: 400px;
+  border: solid black 2px;
+  margin-bottom: 20px;
+}
