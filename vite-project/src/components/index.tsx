@@ -1,11 +1,12 @@
-type GrettingProps = {
+type GreetingProps = {
     name: string;
 };
 
-let registerNumber = 0;
+let registerNumber = 0
 
-function Greeting({ name }: GrettingProps) {
-    registerNumber = registerNumber + 1;
+function Greeting({ name }: GreetingProps) {
+
+    registerNumber += 1
 
     return (
         <div className="card">
