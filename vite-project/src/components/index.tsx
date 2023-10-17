@@ -1,13 +1,17 @@
+import { useEffect, useState } from "react";
+
 type GreetingProps = {
     name: string;
 };
 
-let registerNumber = 0
-
 function Greeting({ name }: GreetingProps) {
 
-    registerNumber += 1
+    const [registerNumber, setRegisterNumber] = useState(0)
 
+    useEffect(() => {
+        setRegisterNumber((prev) => prev + 1);
+    }, []);
+    
     return (
         <div className="card">
             <h1>{`Meu nome é: ${name}!`}</h1>
