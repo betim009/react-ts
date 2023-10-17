@@ -1,46 +1,56 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchCoordinates } from './services';
+import Coordinates from './components/Coordinates';
+import ISSLocation from './components/ISSLocation';
 
-type Coordinates = {
-  latitude: number;
+import './App.css';
+
+type Location = {
   longitude: number;
+  latitude: number;
 };
 
 function App() {
-  const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
+  const [issLocation, setIssLocation] = useState<Location>({
+    longitude: 0,
+    latitude: 0,
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await fetchCoordinates();
-      setCoordinates({ latitude: data.latitude, longitude: data.longitude });
+    async function setLocation() {
+      const location = await fetchCoordinates();
+      setIssLocation(location);
       setLoading(false);
     }
-    fetchData();
+
+    if (loading) {
+      setLocation();
+    }
 
     const intervalId = setInterval(() => {
-      fetchData();
+      setLocation();
     }, 3000);
 
-    return () => { // Essa é a função cleanup
+    return () => {
       clearInterval(intervalId);
     };
   }, []);
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+  if (loading) return <h1>Loading...</h1>;
 
   return (
-    <>
+    <div className="App">
       <h1>International Space Station Location Tracker</h1>
-      {coordinates && (
-        <>
-          <h2>{`Latitude: ${coordinates.latitude}`}</h2>
-          <h2>{`Longitude: ${coordinates.longitude}`}</h2>
-        </>
-      )}
-    </>
+      <Coordinates
+        latitude={issLocation.latitude}
+        longitude={issLocation.longitude}
+      />
+      <ISSLocation
+        latitude={issLocation.latitude}
+        longitude={issLocation.longitude}
+      />
+    </div>
   );
 }
 
