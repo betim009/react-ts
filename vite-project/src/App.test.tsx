@@ -4,7 +4,7 @@ import App from './App';
 
 test('Verifica se existe o campo Email.', () => {
     render(<App />);
-    const inputEmail = screen.getByLabelText('Email:');
+    const inputEmail = screen.getByLabelText('Email');
     expect(inputEmail).toBeInTheDocument();
     expect(inputEmail).toHaveProperty('type', 'email');
 });
@@ -30,7 +30,7 @@ test('Verifica se existe um botão voltar na tela', () => {
 test('Verifica se o campo "email" e o botão "enviar" funcionam corretamente.', async () => {
     render(<App />);
 
-    const inputEmail = screen.getByLabelText('Email:');
+    const inputEmail = screen.getByLabelText('Email');
     const btnSend = screen.getByTestId('id-send');
     const title = screen.getByRole('heading', { name: 'Valor:' });
     const EMAIL_USER = 'email@email.com';
