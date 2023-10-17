@@ -1,40 +1,33 @@
-import { useEffect } from 'react';
-import './App.css'
+import { useState, useEffect } from 'react';
+import { fetchCoordinates } from './services';
 
+type Coordinates = {
+  latitude: number;
+  longitude: number;
+};
 
 function App() {
-
-  const fetchCoordinates = async () => {
-    const response = await fetch(
-      'https://api.wheretheiss.at/v1/satellites/25544'
-    );
-
-    // console.log(response);
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch coordinates`);
-    }
-
-    const coordinates = await response.json();
-    // console.log(coordinates)
-
-
-    const latitude = Number(coordinates.latitude.toFixed(4));
-    const longitude = Number(coordinates.longitude.toFixed(4));
-
-    return { latitude, longitude };
-  };
+  const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
 
   useEffect(() => {
-    fetchCoordinates();
-  }, [])
-
+    async function fetchData() {
+      const data = await fetchCoordinates();
+      setCoordinates({ latitude: data.latitude, longitude: data.longitude });
+    }
+    fetchData();
+  }, []);
 
   return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  )
+    <>
+      <h1>International Space Station Location Tracker</h1>
+      {coordinates && (
+        <>
+          <h2>{`Latitude: ${coordinates.latitude}`}</h2>
+          <h2>{`Longitude: ${coordinates.longitude}`}</h2>
+        </>
+      )}
+    </>
+  );
 }
 
-export default App
+export default App;
