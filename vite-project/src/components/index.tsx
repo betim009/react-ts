@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 
-type GreetingProps = {
-    name: string;
-};
+function Iss() {
 
-function Greeting({ name }: GreetingProps) {
-
-    const [registerNumber, setRegisterNumber] = useState(0)
+    const [iss, setIss] = useState([])
 
     useEffect(() => {
-        setRegisterNumber((prev) => prev + 1);
+        fecthData();
     }, []);
+
+    const fecthData = async () => {
+        const res = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
+        console.log(res);
+    }
+
+
     
     return (
-        <div className="card">
-            <h1>{`Meu nome é: ${name}!`}</h1>
-            <h2>{`Meu número de registro é: ${registerNumber}!`}</h2>
+        <div className="">
         </div>
     );
 }
 
-export default Greeting;
+export default Iss;

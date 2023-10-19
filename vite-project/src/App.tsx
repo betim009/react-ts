@@ -1,20 +1,46 @@
+import { useState, useEffect } from 'react';
+import { fetchApi } from './services';
 
-import { useState } from 'react'
-import './App.css'
-import Greeting from './components/'
+
+type Search = {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Type: string;
+  Poster: string;
+};
+
 
 function App() {
-  const [counter, setCounter] = useState(0);
+  const [movie, setMovie] = useState<Search[] | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchApi();
+      setMovie(data.Search)
+      // console.log(data.Search[0])
+    }
+    fetchData();
+  }, []);
+
+  if (!movie) {
+    return <div>Loading...</div>
+  }
 
   return (
-    <div className='container'>
-      <Greeting name={'Alberto'} />
-      <Greeting name={'Cazuza'} />
-      <button onClick={() => setCounter(counter + 1)}>+1</button>
-      <h3>{counter}</h3>
-      <br />
-    </div>
-  )
+    <>
+      <h1>Filmes do naruto</h1>
+      {
+        movie.map((e) => (
+          <div key={e.Title}>
+            <h5>{e.Title}</h5>
+            <img src={e.Poster} />
+            <h6>{e.Year} <span>{e.Type}</span></h6>
+          </div>
+        ))
+      }
+    </>
+  );
 }
 
-export default App
+export default App;
