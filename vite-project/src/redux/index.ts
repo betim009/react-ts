@@ -7,10 +7,19 @@ type ActionType = {
 }
 
 const INITIAL_STATE = {
-    count: 0,
+    count: 0, // altere aqui e veja no devtols
 };
 
-const reducer = (state = INITIAL_STATE, action: ActionType) => state;
+const reducer = (state = INITIAL_STATE, action: ActionType) => {
+    switch (action.type) {
+        case "INCREMENT_COUNTER": {
+            return {
+                count: state.count + 1,
+            };
+        }
+        default: return state;
+    }
+};
 
 const store = createStore(reducer, composeWithDevTools());
 
