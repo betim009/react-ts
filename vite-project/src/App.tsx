@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { action } from './redux/actions'
+import { actionCreator } from './redux/actions'
 
 
 type RootState = {
@@ -16,8 +16,8 @@ function App() {
     <div>
       <h1>Contador</h1>
       <h2>{count}</h2>
-      <button onClick={() => dispatch(action)}>Incrementa 1</button>
-      <button>Incrementa 5</button>
+      <button onClick={() => dispatch(actionCreator())}>Incrementa 1</button>
+      <button onClick={() => dispatch(actionCreator(5))}>Incrementa 5</button>
     </div>
   );
 }

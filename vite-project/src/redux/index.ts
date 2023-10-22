@@ -4,6 +4,7 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 
 type ActionType = {
     type: string,
+    payload: number,
 }
 
 const INITIAL_STATE = {
@@ -14,7 +15,7 @@ const reducer = (state = INITIAL_STATE, action: ActionType) => {
     switch (action.type) {
         case "INCREMENT_COUNTER": {
             return {
-                count: state.count + 1,
+                count: state.count + action.payload,
             };
         }
         default: return state;
