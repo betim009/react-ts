@@ -4,7 +4,7 @@ import { actionCreator, clickCounter } from './redux/actions'
 
 type RootState = {
   count: number;
-  click: number
+  click: number;
 };
 
 function App() {
