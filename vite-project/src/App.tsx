@@ -2,6 +2,7 @@ import './App.css'
 import Footer from './components/Footer'
 import { useState } from 'react';
 import ThemeContext from './context/ThemeContext'
+import Header from './components/Header';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <ThemeContext.Provider value={{ theme: pageTheme, toggleTheme }}>
       <div>
         <h1>Hello World!</h1>
+        <Header />
         <Footer />
       </div>
     </ThemeContext.Provider>
