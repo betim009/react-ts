@@ -6,7 +6,7 @@ function Header() {
 
     return (
         <header>
-            <h1>Trybe</h1>
+            <h1>Yo</h1>
             <button onClick={() => themeContext.toggleTheme()}>
                 {themeContext.theme === 'dark' ? '☀️' : '🌒'}
             </button>

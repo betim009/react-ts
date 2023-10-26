@@ -1,25 +1,22 @@
-import './App.css'
-import Footer from './components/Footer'
 import { useState } from 'react';
-import ThemeContext from './context/ThemeContext'
+import ThemeContext from './context/ThemeContext';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import './App.css';
 
-
-function App() {
+export default function App() {
   const [pageTheme, setPageTheme] = useState<'dark' | 'light'>('dark');
 
   function toggleTheme() {
     setPageTheme(pageTheme === 'dark' ? 'light' : 'dark');
   }
+
   return (
     <ThemeContext.Provider value={{ theme: pageTheme, toggleTheme }}>
-      <div>
-        <h1>Hello World!</h1>
+      <div className={`app ${pageTheme}`}>
         <Header />
         <Footer />
       </div>
     </ThemeContext.Provider>
-  )
+  );
 }
-
-export default App
